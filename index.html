@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
     <title>Calculator</title>
 </head>
@@ -13,7 +14,7 @@
 
     <div id="calculator">
         <div class="result">
-            <div>0</div>
+            <div class="result-screen"></div>
         </div>
 
         <div class="operations">
@@ -24,31 +25,31 @@
                 </div>
                 
                 <div>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>*</button>
+                    <button id="num7">7</button>
+                    <button id="num8">8</button>
+                    <button id="num9">9</button>
+                    <button id="multiply-operator">*</button>
                 </div>
 
                 <div>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>/</button>
+                    <button id="num4">4</button>
+                    <button id="num5">5</button>
+                    <button id="num6">6</button>
+                    <button id="divide-operator">/</button>
                 </div>
 
                 <div>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>+</button>
+                    <button id="num1">1</button>
+                    <button id="num2">2</button>
+                    <button id="num3">3</button>
+                    <button id="add-operator">+</button>
                 </div>
 
                 <div>
-                    <button>0</button>
-                    <button>.</button>
-                    <button>=</button>
-                    <button>-</button>
+                    <button id="0">0</button>
+                    <button id="float-operator">.</button>
+                    <button id="final-result">=</button>
+                    <button id="substract-operator">-</button>
                 </div>
             </div>
         </div>
