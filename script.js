@@ -1,12 +1,15 @@
 // Variables declaration
 
+let numberButtons = [];
+
 let firstNumber = 0;
-let secondNumber = 55;
+let secondNumber = 0;
 
 
 // Checks if an operator has been clicked, so we can start storing the new numbers into the secondNumber instead of the first one
 
 let operationState = false;
+let floatState = false;
 
 // Checks the operation that is going to be made
 
@@ -14,32 +17,62 @@ let operatorUsed = "";
 
 // DOM handling
 
-const number1Button = document.querySelector("#num1");
-const number2Button = document.querySelector("#num2");
-const number3Button = document.querySelector("#num3");
-const number4Button = document.querySelector("#num4");
-const number5Button = document.querySelector("#num5");
-const number6Button = document.querySelector("#num6");
-const number7Button = document.querySelector("#num7");
-const number8Button = document.querySelector("#num8");
-const number9Button = document.querySelector("#num9");
+for(let i = 0; i < 10; i++) {
+    numberButtons[i] = document.querySelector(`#num${i}`);
+}
 
 const addButton = document.querySelector("#add-operator");
+const substractButton = document.querySelector("#substract-operator");
+const multiplyButton = document.querySelector("#multiply-operator");
+const divideButton = document.querySelector("#divide-operator");
+const floatButton = document.querySelector("#float-operator");
 
 const resultButton = document.querySelector("#final-result");
 
+for(let i = 0; i < 10; i++) {
+    numberButtons[i].addEventListener("click", function() {
+        if (operationState === false) {
+            firstNumber = getNumber(firstNumber, i);
+        }
 
-number1Button.addEventListener("click", function() {
-    getNumber(firstNumber, 1);
-})
+        else if (operationState === true){
+            secondNumber = getNumber(secondNumber, i);
+        }
+    })
+}
+
+
+
 
 addButton.addEventListener("click", () => {
     operationState = true;
     operatorUsed = "add";
 })
 
+substractButton.addEventListener("click", () => {
+    operationState = true;
+    operatorUsed = "substract";
+})
+
+multiplyButton.addEventListener("click", () => {
+    operationState = true;
+    operatorUsed = "multiply";
+})
+
+divideButton.addEventListener("click", () => {
+    operationState = true;
+    operatorUsed = "divide";
+})
+
+floatButton.addEventListener("click", () => {
+    floatState = true;
+})
+
+
+
 resultButton.addEventListener("click", function() {
     firstNumber = operate(operatorUsed, firstNumber, secondNumber);
+    secondNumber = 0;
 })
 
 
@@ -66,14 +99,41 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
-    return operator(a, b);
+    if (operator === "add") {
+        return add(a,b);
+    }
+
+    else if (operator === "substract"){
+        return substract(a,b);
+    }
+
+    else if (operator === "multiply"){
+        return multiply(a,b);
+    }
+
+    else if (operator === "divide"){
+        return divide(a,b);
+    }
 }
 
 function getNumber(storedNumber, newNumber) {
-    storedNumber = storedNumber.toString();
-    storedNumber += newNumber;
+    if (floatState === true) {
+        storedNumber = storedNumber.toString();
+        storedNumber += `.${newNumber}`;
 
-    firstNumber = parseInt(storedNumber);
+        number = parseFloat(storedNumber);
+        floatState = false;
 
-    return firstNumber;
+        return number;
+    }
+
+    else {
+        storedNumber = storedNumber.toString();
+        storedNumber += newNumber;
+
+        number = parseFloat(storedNumber);
+
+        return number;
+    }
+    
 }
