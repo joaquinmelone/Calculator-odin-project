@@ -10,7 +10,7 @@ body {
     margin: 0;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
     background-color: #2f2f2f;
@@ -18,34 +18,31 @@ body {
     width: 100%;
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 30px;
-    color: azure;
-    font-weight: bold;
-
-    height: 150px;
-}
-
 #calculator {
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
     height: 550px;
     width: 450px;
+    border-radius: 25px;
+    background-color: #7b7265;
+}
+
+#result-screen {
+    font-weight: bold;
+    color: white;
+    background-color: #2f2f2f;
+    border: 3px solid black;
 }
 
 .result {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 450px;
-    height: 75px;
-
-    border: 1px solid red;
+    width: 400px;
+    height: 50px;
 }
 
 .result div {
@@ -63,9 +60,9 @@ header {
     align-items: center;
     justify-content: center;
 
-    height: 495px;
-    width: 450px;
-    border: 1px solid red;
+    height: 450px;
+    width: 400px;
+    
 }
 
 .buttons {
@@ -90,10 +87,10 @@ header {
 
     font-size: 25px;
     font-weight: bold;
-    color: goldenrod;
+    color: white;
     background-color: #2f2f2f;
     
-    border: 1px solid red;
+    border: 3px solid black;
 }
 
 
